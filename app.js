@@ -75,5 +75,14 @@ function clearTasks(){
 
 //Filter tasks
 function filterTasks(e){
-    const text = e.target.value;
+    const text = e.target.value.toLowerCase();
+
+    document.querySelectorAll('.collection-item').forEach(function(task){
+        const item = task.firstChild.textContent;
+        if (item.toLowerCase().indexOf(text) !=-1){
+            task.stlye.display = 'block';
+        } else {
+            task.stlye.display = 'none';
+        }
+    });
 }
